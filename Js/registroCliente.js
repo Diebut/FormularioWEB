@@ -1,20 +1,21 @@
-document.getElementById('registroForm').addEventListener('submit', function(event){
-    event.preventDefault();
+const fondo = document.querySelector(".fondo");
+const loginLink = document.querySelector(".login-link");
+const registrarLink = document.querySelector(".registrar-link");
+const btn = document.querySelector(".btn");
+const iconocerrar = document.querySelector(".icono-cerrar");
 
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
-    const acceptTerms  = document.getElementById('acceptTerms').value;
-    const errorMessage  = document.getElementById('errorMessage ').value;
+registrarLink.addEventListener("click", ()=>{
+    fondo.classList.add('active');
+});
 
-    if (password !== confirmPassword) {
-        errorMessage.textContent = 'La Contraseña no coincide!';
-        errorMessage.style.display = 'Bloquear'
-    }else if(!acceptTerms){
-        errorMessage.textContent = 'Debe aceptar los términos y condiciones.'
-        errorMessage.style.display = 'Bloquear'
-    }else{
-        errorMessage.style.display = 'none';
-    }
+loginLink.addEventListener("click", ()=>{
+    fondo.classList.remove('active');
+});
 
-    window.location.href = 'login.html';
-})
+btn.addEventListener("click", ()=>{
+    fondo.classList.add('active-btn');
+});
+
+iconocerrar.addEventListener("click", ()=>{
+    fondo.classList.remove('active-btn');
+});
